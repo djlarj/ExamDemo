@@ -108,11 +108,17 @@ function displayResult() {
     const percentage = (score / quizData.length) * 100;
 
     // Initialize a message variable
-    let message = `You scored ${score} out of ${quizData.length} (${percentage}%)!`;
+    let message = `<br>You scored ${score} out of ${quizData.length} (${percentage}%)`;
 
     // Check if the user's score is 80% or more and add a congratulatory message
     if (percentage >= 80) {
         message = `Congratulations! You Passed!\n${message}`;
+
+        // Add date and time stamp on separate lines
+        const currentDate = new Date();
+        const date = currentDate.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
+        const time = currentDate.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
+        message += `<br>\nDate: ${date} Time: ${time}`;
     }
 
     // Display the result with the message
@@ -127,6 +133,8 @@ function displayResult() {
         showAnswerButton.style.display = 'inline-block';
     }
 }
+
+
   
 function retryQuiz() {
     currentQuestion = 0;

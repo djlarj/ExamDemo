@@ -1,2 +1,2 @@
-# QuizDemo
-Quiz Template Demo
+# ExamDemo
+Exam Template Demo

@@ -113,13 +113,13 @@ function displayResult() {
     // Check if the user's score is 80% or more and add a congratulatory message
     if (percentage >= 80) {
         message = `Congratulations! You Passed!\n${message}`;
-
-        // Add date and time stamp on separate lines
-        const currentDate = new Date();
-        const date = currentDate.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
-        const time = currentDate.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
-        message += `<br>\nDate: ${date} Time: ${time}`;
     }
+
+    // Add date and time stamp on separate lines
+    const currentDate = new Date();
+    const date = currentDate.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
+    const time = currentDate.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
+    message += `<br>Date: ${date}\nTime: ${time}`;
 
     // Display the result with the message
     resultContainer.innerHTML = message;
@@ -133,9 +133,6 @@ function displayResult() {
         showAnswerButton.style.display = 'inline-block';
     }
 }
-
-
-  
 function retryQuiz() {
     currentQuestion = 0;
     score = 0;
@@ -147,7 +144,7 @@ function retryQuiz() {
     resultContainer.innerHTML = '';
     displayQuestion();
 }
-  
+
 function showAnswer() {
     quizContainer.style.display = 'none';
     submitButton.style.display = 'none';
@@ -168,14 +165,24 @@ function showAnswer() {
     // Calculate the percentage
     const percentage = (score / quizData.length) * 100;
 
-    // Display the result with the percentage
-    resultContainer.innerHTML = `
-        <p>You scored ${score} out of ${quizData.length} (${percentage}%)!</p>
-        <p>Incorrect Answers:</p>
-        ${incorrectAnswersHtml}
-    `;
+    // Initialize a message variable
+    let message = `<br>You scored ${score} out of ${quizData.length} (${percentage}%)`;
+
+    // Check if the user's score is 80% or more and add a congratulatory message
+    if (percentage >= 80) {
+        message = `Congratulations! You Passed!\n${message}`;
+    }    
+    
+    // Add date and time stamp on separate lines
+    const currentDate = new Date();
+    const date = currentDate.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
+    const time = currentDate.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
+    message += `<br>Date: ${date}\nTime: ${time}`;
+
+    // Display the result with the message and incorrect answers
+    resultContainer.innerHTML = `${message}\n\n<p>Incorrect Answers:</p>${incorrectAnswersHtml}`;
 }
-  
+
 submitButton.addEventListener('click', checkAnswer);
 retryButton.addEventListener('click', retryQuiz);
 showAnswerButton.addEventListener('click', showAnswer);

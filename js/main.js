@@ -8,16 +8,16 @@ window.onload = function () {
 };
 
 // Close the modal when the "Close" button is clicked
-closeNameModal.onclick = function () {
-    nameModal.style.display = 'none';
-};
+// closeNameModal.onclick = function () {
+//     nameModal.style.display = 'none';
+// };
 
 // Close the modal when the user clicks outside of it
-window.onclick = function (event) {
-    if (event.target === nameModal) {
-        nameModal.style.display = 'none';
-    }
-};
+// window.onclick = function (event) {
+//     if (event.target === nameModal) {
+//         nameModal.style.display = 'none';
+//     }
+// };
 
 // Add an event listener for the name submission
 nameSubmitButton.addEventListener('click', function () {
@@ -30,7 +30,7 @@ nameSubmitButton.addEventListener('click', function () {
         nameModal.style.display = 'none';
         displayQuestion();
     } else {
-        alert('Please fill in both first and last name fields.');
+        alert('You must fill in both first and last name fields to get started.');
     }
 });
 

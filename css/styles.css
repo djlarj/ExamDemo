@@ -27,12 +27,12 @@ body {
     width: 450px; /* Adjust the width as needed */
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    text-align: center; /* Center the content inside the modal */
+    text-align: center; /*Center the content inside the modal */
 }
 
-.close {
+/* .close {
     color: #ff0000;
-}
+} */
 
 #firstName {
     border-radius: 5px;

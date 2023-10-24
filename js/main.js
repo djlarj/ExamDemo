@@ -1,3 +1,39 @@
+const nameModal = document.getElementById('nameModal');
+const closeNameModal = document.getElementById('closeNameModal');
+const nameSubmitButton = document.getElementById('nameSubmit');
+
+// Show the name modal when the page loads
+window.onload = function () {
+    nameModal.style.display = 'block';
+};
+
+// Close the modal when the "Close" button is clicked
+closeNameModal.onclick = function () {
+    nameModal.style.display = 'none';
+};
+
+// Close the modal when the user clicks outside of it
+window.onclick = function (event) {
+    if (event.target === nameModal) {
+        nameModal.style.display = 'none';
+    }
+};
+
+// Add an event listener for the name submission
+nameSubmitButton.addEventListener('click', function () {
+    // Validate and process the user's name, then hide the modal
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+
+    if (firstName && lastName) {
+        userName = `${firstName} ${lastName}`;
+        nameModal.style.display = 'none';
+        displayQuestion();
+    } else {
+        alert('Please fill in both first and last name fields.');
+    }
+});
+
 const quizData = [
     {
         question: 'What is the hottest planet in our solar system?',
@@ -108,7 +144,7 @@ function displayResult() {
     const percentage = (score / quizData.length) * 100;
 
     // Initialize a message variable
-    let message = `<br>You scored ${score} out of ${quizData.length} (${percentage}%)`;
+    let message = `<br>${userName}<br>You scored ${score} out of ${quizData.length} (${percentage}%)`;
 
     // Check if the user's score is 80% or more and add a congratulatory message
     if (percentage >= 80) {
@@ -166,7 +202,7 @@ function showAnswer() {
     const percentage = (score / quizData.length) * 100;
 
     // Initialize a message variable
-    let message = `<br>You scored ${score} out of ${quizData.length} (${percentage}%)`;
+    let message = `<br>${userName}<br>You scored ${score} out of ${quizData.length} (${percentage}%)`;
 
     // Check if the user's score is 80% or more and add a congratulatory message
     if (percentage >= 80) {

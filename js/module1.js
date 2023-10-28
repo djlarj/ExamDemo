@@ -65,7 +65,8 @@ const quizData = [
 const quizContainer = document.getElementById('quiz');
 const resultContainer = document.getElementById('result');
 const submitButton = document.getElementById('submit');
-const retryButton = document.getElementById('retry');
+const mainMenuButton = document.getElementById('mainMenu');
+// const retryButton = document.getElementById('retry');
 const showAnswerButton = document.getElementById('showAnswer');
   
 let currentQuestion = 0;
@@ -155,36 +156,39 @@ function displayResult() {
     const currentDate = new Date();
     const date = currentDate.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
     const time = currentDate.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
-    message += `<br>Date: ${date}\nTime: ${time}`;
+    message += `<br>Date: ${date}\nTime: ${time}<br>Please Print this page before exiting.`;
 
     // Display the result with the message
     resultContainer.innerHTML = message;
 
     // Check if the user's score is 100%
     if (score === quizData.length) {
-        retryButton.style.display = 'none';
+        mainMenuButton.style.display = 'inline-block';
+        // retryButton.style.display = 'none';
         showAnswerButton.style.display = 'none';
     } else {
-        retryButton.style.display = 'inline-block';
+        // retryButton.style.display = 'inline-block';
         showAnswerButton.style.display = 'inline-block';
     }
 }
-function retryQuiz() {
-    currentQuestion = 0;
-    score = 0;
-    incorrectAnswers = [];
-    quizContainer.style.display = 'block';
-    submitButton.style.display = 'inline-block';
-    retryButton.style.display = 'none';
-    showAnswerButton.style.display = 'none';
-    resultContainer.innerHTML = '';
-    displayQuestion();
-}
+
+// function retryQuiz() {
+//     currentQuestion = 0;
+//     score = 0;
+//     incorrectAnswers = [];
+//     quizContainer.style.display = 'block';
+//     submitButton.style.display = 'inline-block';
+//     retryButton.style.display = 'none';
+//     showAnswerButton.style.display = 'none';
+//     resultContainer.innerHTML = '';
+//     displayQuestion();
+// }
 
 function showAnswer() {
     quizContainer.style.display = 'none';
     submitButton.style.display = 'none';
-    retryButton.style.display = 'inline-block';
+    mainMenuButton.style.display = 'inline-block';
+    // retryButton.style.display = 'inline-block';
     showAnswerButton.style.display = 'none';
 
     let incorrectAnswersHtml = '';
@@ -213,14 +217,20 @@ function showAnswer() {
     const currentDate = new Date();
     const date = currentDate.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
     const time = currentDate.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
-    message += `<br>Date: ${date}\nTime: ${time}`;
+    message += `<br>Date: ${date}\nTime: ${time}<br>Please Print this page before exiting.`;
 
     // Display the result with the message and incorrect answers
     resultContainer.innerHTML = `${message}\n\n<p>Incorrect Answers:</p>${incorrectAnswersHtml}`;
 }
 
+function goHome()
+{
+window.location.href="../index.html"
+}
+
 submitButton.addEventListener('click', checkAnswer);
-retryButton.addEventListener('click', retryQuiz);
+mainMenuButton.addEventListener('click', goHome);
+// retryButton.addEventListener('click', retryQuiz);
 showAnswerButton.addEventListener('click', showAnswer);
 
 displayQuestion();

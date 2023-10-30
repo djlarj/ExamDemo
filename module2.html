@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="css/modules.css">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <title>The Geek Next Door - Module 2 Demo</title>
+    </head>
+
+    <body>
+
+        <!-- Navbar -->
+        <nav class="navbar">
+            <!-- Logo -->
+            <div>
+                <a class="logo" href="index.html">
+                    <img class="navbar-brand" src="img/theGeekNextDoorLogo.png" alt="The Geek Next Door Logo">
+                </a>
+            </div>       
+        </nav>
+
+        <div id="nameModal" class="modal">
+            <div class="modal-content">
+                <!-- <span class="close" id="closeNameModal"><i class="fa fa-times-circle fa-2x" aria-hidden="true"></i></span> -->
+                <h2>Please Enter Your First and Last Name</h2>
+                <input type="text" id="firstName" placeholder="First Name" aria-label="Type your first name here">
+                <input type="text" id="lastName" placeholder="Last Name" aria-label="Type your last name here">
+                <button id="nameSubmit" class="button">Submit</button>
+            </div>
+        </div>        
+        
+        <div class="container">
+            <h1>Module 1 Demo</h1>
+            <div id="quiz"></div>
+            <div id="result" class="result"></div>
+            <button id="submit" class="button">Submit</button>
+            <button id="mainMenu" class="button hide">Main Menu</button>
+            <!-- <button id="retry" class="button hide">Retry</button> -->
+            <button id="showAnswer" class="button hide">Show Incorrect Answer(s)</button>
+        </div>
+
+        <!-- Back to top button -->
+        <a id="btt-button" class="text-decoration-none"></a>
+
+        <!-- Footer -->
+        <footer class="">
+            <p class="copyright">2023 The Geek Next Door</p>
+        </footer> 
+
+        <!-- Option 1: jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="js/module2.js"></script>
+
+    </body>
+
+</html>

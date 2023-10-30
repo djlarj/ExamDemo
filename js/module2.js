@@ -36,29 +36,29 @@ nameSubmitButton.addEventListener('click', function () {
 
 const quizData = [
     {
-        question: 'What is the hottest planet in our solar system?',
-        options: ['Mercury', 'Venus', 'Earth', 'Mars'],
-        answer: 'Venus',
+        question: 'Which dwarf planet is the closest to our sun in our solar system?',
+        options: ['Ceres', 'Makemake', 'Haumea', 'Eris'],
+        answer: 'Ceres',
     },
     {
-        question: 'What is the largest planet in our solar system?',
-        options: ['Jupiter', 'Saturn', 'Uranus', 'Neptune'],
-        answer: 'Jupiter',
+        question: 'Which dwarf planet is the farthest from our sun in our solar system?',
+        options: ['Ceres', 'Makemake', 'Haumea', 'Eris'],
+        answer: 'Eris',
     },
     {
-        question: 'Which planet was downgraded to a dwarf planet in our solar system?',
-        options: ['Mercury', 'Venus', 'Mars', 'Pluto'],
+        question: 'Which dwarf planet was considered the 9th planet, before it got downgraded, in our solar system?',
+        options: ['Ceres', 'Pluto', 'Makemake', 'Haumea'],
         answer: 'Pluto',
     },
     {
-        question: 'Which planet is known as the Red Planet in our solar system?',
-        options: ['Mars', 'Venus', 'Mercury', 'Uranus'],
-        answer: 'Mars',
+        question: 'Which dwarf planet was named after the Rapanui god of fertility in our solar system?',
+        options: ['Ceres', 'Pluto', 'Makemake', 'Haumea'],
+        answer: 'Makemake',
     },
     {
-        question: 'Which planet is known as the Jewel Planet in our solar system?',
-        options: ['Jupiter', 'Saturn', 'Uranus', 'Neptune'],
-        answer: 'Saturn',
+        question: 'Which dwarf planet is oval-shaped like a football in our solar system?',
+        options: ['Ceres', 'Pluto', 'Makemake', 'Haumea'],
+        answer: 'Haumea',
     },
 ];
   

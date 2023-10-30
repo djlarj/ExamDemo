@@ -223,9 +223,8 @@ function showAnswer() {
     resultContainer.innerHTML = `${message}\n\n<p>Incorrect Answers:</p>${incorrectAnswersHtml}`;
 }
 
-function goHome()
-{
-window.location.href="index.html"
+function goHome() {
+    window.location.href="index.html"
 }
 
 submitButton.addEventListener('click', checkAnswer);

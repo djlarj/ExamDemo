@@ -225,7 +225,7 @@ function showAnswer() {
 
 function goHome()
 {
-window.location.href="../index.html"
+window.location.href="index.html"
 }
 
 submitButton.addEventListener('click', checkAnswer);

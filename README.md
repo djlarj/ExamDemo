@@ -1,2 +1,2 @@
-# ExamDemo
-Exam Template Demo
+# ExamsDemo
+Exams Template Demo

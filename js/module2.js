@@ -19,7 +19,7 @@ window.onload = function () {
 //     }
 // };
 
-// Add an event listener for the name submission
+// Add an event listener for the name submission modal
 nameSubmitButton.addEventListener('click', function () {
     // Validate and process the user's name, then hide the modal
     const firstName = document.getElementById('firstName').value;
@@ -33,6 +33,32 @@ nameSubmitButton.addEventListener('click', function () {
         alert('You must fill in both first and last name fields to get started.');
     }
 });
+
+// Enter key event listener for the name submission modal 
+const firstNameInput = document.getElementById('firstName');
+const lastNameInput = document.getElementById('lastName');
+
+// Add an event listener for the Enter key on the first name input field
+firstNameInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        simulateClick(nameSubmit);
+    }
+});
+
+// Add an event listener for the Enter key on the last name input field
+lastNameInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        simulateClick(nameSubmit);
+    }
+});
+
+// Function to simulate a click on a button
+function simulateClick(button) {
+    const clickEvent = new Event('click');
+    button.dispatchEvent(clickEvent);
+}
 
 const quizData = [
     {
@@ -155,7 +181,13 @@ function displayResult() {
     // Add date and time stamp on separate lines
     const currentDate = new Date();
     const date = currentDate.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
-    const time = currentDate.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
+    
+    // Format the time manually to ensure 12 AM is displayed as '00'
+    let hours = currentDate.getHours().toString().padStart(2, '0');
+    let minutes = currentDate.getMinutes().toString().padStart(2, '0');
+
+    const time = `${hours}:${minutes}`;
+    
     message += `<br>Date: ${date}\nTime: ${time}<br>Please Print this page before exiting.`;
 
     // Display the result with the message
@@ -212,11 +244,17 @@ function showAnswer() {
     if (percentage >= 80) {
         message = `Congratulations! You Passed!\n${message}`;
     }    
-    
+
     // Add date and time stamp on separate lines
     const currentDate = new Date();
     const date = currentDate.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
-    const time = currentDate.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
+
+    // Format the time manually to ensure 12 AM is displayed as '00'
+    let hours = currentDate.getHours().toString().padStart(2, '0');
+    let minutes = currentDate.getMinutes().toString().padStart(2, '0');
+
+    const time = `${hours}:${minutes}`;
+
     message += `<br>Date: ${date}\nTime: ${time}<br>Please Print this page before exiting.`;
 
     // Display the result with the message and incorrect answers
